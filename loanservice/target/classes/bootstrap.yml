@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: loan-service
+  cloud:
+    config:
+      uri: ${CONFIG_SERVER:http://localhost:8888}
+      fail-fast: true
+      password: 1234
+      username: user

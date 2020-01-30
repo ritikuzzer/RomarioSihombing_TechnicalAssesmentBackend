@@ -1,0 +1,27 @@
+zuul:
+  ignoredServices: '*'
+  host:
+    connect-timeout-millis: 60000
+    socket-timeout-millis: 60000
+
+  routes:
+    auth-service:
+      path: /uaa/** #path that will be intercepted
+      url: auth-service #which url the request will e mapped to
+      stripPrefix: false #if zuul should replace the "/uaa/" segment
+      sensitiveHeaders:
+
+    customer-service:
+      path: /customer/**
+      serviceId: customer-service
+      stripPrefix: false
+      sensitiveHeaders:
+      
+    loan-service:
+      path: /loan/**
+      serviceId: loan-service
+      stripPrefix: false
+      sensitiveHeaders:
+      
+server:
+  port: 8080

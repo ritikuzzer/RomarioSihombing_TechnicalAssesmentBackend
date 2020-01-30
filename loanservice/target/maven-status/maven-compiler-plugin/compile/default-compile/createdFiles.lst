@@ -1,0 +1,12 @@
+com\bootcamp\kelompok4\loanservice\service\LoanDaoImpl.class
+com\bootcamp\kelompok4\loanservice\repo\LoanRepo.class
+com\bootcamp\kelompok4\loanservice\service\LoanTypeDao.class
+com\bootcamp\kelompok4\loanservice\service\LoanTypeDaoImpl.class
+com\bootcamp\kelompok4\loanservice\dto\DetailLoan.class
+com\bootcamp\kelompok4\loanservice\DaoSpringbootConfig.class
+com\bootcamp\kelompok4\loanservice\entity\Loan.class
+com\bootcamp\kelompok4\loanservice\service\LoanDao.class
+com\bootcamp\kelompok4\loanservice\entity\LoanType.class
+com\bootcamp\kelompok4\loanservice\controller\LoanController.class
+com\bootcamp\kelompok4\loanservice\repo\LoanTypeRepo.class
+com\bootcamp\kelompok4\loanservice\LoanServiceApplication.class

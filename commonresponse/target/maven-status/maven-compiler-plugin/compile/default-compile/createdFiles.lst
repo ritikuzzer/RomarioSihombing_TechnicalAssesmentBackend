@@ -1,0 +1,8 @@
+com\bootcamp\commonResponse\kelompok4\JsonUtil.class
+com\bootcamp\commonResponse\kelompok4\CommonStatus.class
+com\bootcamp\commonResponse\kelompok4\dto\LoanDto.class
+com\bootcamp\commonResponse\kelompok4\dto\DetailLoan.class
+com\bootcamp\commonResponse\kelompok4\dto\BillPaymentDto.class
+com\bootcamp\commonResponse\kelompok4\CommonResponse.class
+com\bootcamp\commonResponse\kelompok4\dto\CustomerDto.class
+com\bootcamp\commonResponse\kelompok4\CommonResponseGenerator.class

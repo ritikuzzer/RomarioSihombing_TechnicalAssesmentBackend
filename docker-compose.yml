@@ -1,0 +1,73 @@
+version: '3'
+services:
+  config:
+    container_name: config
+    image: com.enigma.bootcamp.kelompok4/configservice:latest
+    ports:
+      - 8888:8888
+  registry:
+    container_name: registry
+    image: com.enigma.bootcamp.kelompok4/eureka:latest
+    environment:
+      - CONFIG_SERVER=http://config:8888
+      - REGISTRY_SERVER=http://registry:8761/eureka/
+    restart: always
+    depends_on:
+      - config
+    ports:
+      - 8761:8761
+  gateway:
+    container_name: gateway
+    image: com.enigma.bootcamp.kelompok4/gateway-service:latest
+    environment:
+      - CONFIG_SERVER=http://config:8888
+      - REGISTRY_SERVER=http://registry:8761/eureka/
+    restart: always
+    depends_on:
+      - config
+      - registry
+    ports:
+      - 8080:8080
+  customer:
+    container_name: customer
+    image: com.enigma.bootcamp.kelompok4/customer-service:latest
+    environment:
+      - CONFIG_SERVER=http://config:8888
+      - REGISTRY_SERVER=http://registry:8761/eureka/
+      - DB_HOST=db
+    restart: always
+    depends_on:
+      - config
+      - registry
+      - gateway 
+      - db 
+  loan:
+    container_name: loan
+    image: com.enigma.bootcamp.kelompok4/loanservice:latest
+    environment:
+      - CONFIG_SERVER=http://config:8888
+      - REGISTRY_SERVER=http://registry:8761/eureka/
+      - DB_HOST=db
+    restart: always
+    depends_on:
+      - config
+      - registry
+      - gateway
+      - db    
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'mydb'
+      # So you don't have to use root, but you can if you like
+      MYSQL_USER: 'user'
+      # You can use whatever password you like
+      MYSQL_PASSWORD: 'user123'
+      # Password for root access
+      MYSQL_ROOT_PASSWORD: ''
+    ports:
+      # <Port exposed> : < MySQL Port running inside container>
+      - '3306:3306'
+    expose:
+      # Opens port 3306 on the container
+      - '3306'
