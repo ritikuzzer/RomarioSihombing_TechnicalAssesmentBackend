@@ -2,12 +2,12 @@ version: '3'
 services:
   config:
     container_name: config
-    image: com.enigma.bootcamp.kelompok4/configservice:latest
+    image: com.enigma.bootcamp/configservice:latest
     ports:
       - 8888:8888
   registry:
     container_name: registry
-    image: com.enigma.bootcamp.kelompok4/eureka:latest
+    image: com.enigma.bootcamp/eureka:latest
     environment:
       - CONFIG_SERVER=http://config:8888
       - REGISTRY_SERVER=http://registry:8761/eureka/
@@ -18,7 +18,7 @@ services:
       - 8761:8761
   gateway:
     container_name: gateway
-    image: com.enigma.bootcamp.kelompok4/gateway-service:latest
+    image: com.enigma.bootcamp/gateway-service:latest
     environment:
       - CONFIG_SERVER=http://config:8888
       - REGISTRY_SERVER=http://registry:8761/eureka/
@@ -30,7 +30,7 @@ services:
       - 8080:8080
   customer:
     container_name: customer
-    image: com.enigma.bootcamp.kelompok4/customer-service:latest
+    image: com.enigma.bootcamp/customer-service:latest
     environment:
       - CONFIG_SERVER=http://config:8888
       - REGISTRY_SERVER=http://registry:8761/eureka/
@@ -43,7 +43,7 @@ services:
       - db 
   loan:
     container_name: loan
-    image: com.enigma.bootcamp.kelompok4/loanservice:latest
+    image: com.enigma.bootcamp/loanservice:latest
     environment:
       - CONFIG_SERVER=http://config:8888
       - REGISTRY_SERVER=http://registry:8761/eureka/

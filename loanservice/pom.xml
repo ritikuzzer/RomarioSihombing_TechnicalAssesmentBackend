@@ -9,7 +9,7 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	
-  <groupId>com.bootcamp.kelompok4</groupId>
+  <groupId>com.bootcamp</groupId>
   <artifactId>loanservice</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
